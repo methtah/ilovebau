@@ -172,21 +172,17 @@ Teşekkürler, Saygılarımla, Eren TÜRK
         &copy; 2026 Eren Türk. Tüm Hakları Saklıdır. Bahçeşehir Üniversitesi ApplyBAU Komitesi Değerlendirmesi İçindir.
     </footer>
 
-    <!-- THEREMIN MOTOR SCRIPT (MOBİL KESİN ÇÖZÜM) -->
+    <!-- THEREMIN MOTOR SCRIPT (KÜRESEL SES KİLİDİ ÇÖZÜMÜ) -->
+<!-- THEREMIN MOTOR SCRIPT (KESİNLEŞTİRİLMİŞ TAM ÇÖZÜM) -->
     <script>
         let audioCtx = null, oscillator = null, gainNode = null;
         const pad = document.getElementById('theremin-pad'), text = document.getElementById('theremin-text'), pointer = document.getElementById('theremin-pointer');
 
-        // Mobil tarayıcılardaki ses kilidini açan ve motoru başlatan fonksiyon
-        function initAudio() {
+        // Tarayıcının ses kilidini global olarak açan ana fonksiyon
+        function globalUnlockAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 
-                // Mobil cihazlarda AudioContext askıdaysa (suspended) uyandırıyoruz
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-
                 oscillator = audioCtx.createOscillator(); 
                 gainNode = audioCtx.createGain();
                 
@@ -197,27 +193,44 @@ Teşekkürler, Saygılarımla, Eren TÜRK
                 oscillator.connect(gainNode); 
                 gainNode.connect(audioCtx.destination);
                 oscillator.start();
-                
-                text.innerText = "Kutuda gezinin."; 
-                pointer.classList.remove('hidden');
-            } else if (audioCtx.state === 'suspended') {
+            }
+            
+            if (audioCtx && audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
+
+            // Kilit açılınca dinleyicileri kaldırıyoruz
+            document.removeEventListener('click', globalUnlockAudio);
+            document.removeEventListener('touchstart', globalUnlockAudio);
         }
 
+        // Kullanıcı ekrana dokunduğu an kilit kırılır
+        document.addEventListener('click', globalUnlockAudio);
+        document.addEventListener('touchstart', globalUnlockAudio);
+
+        // Theremin kutusu üzerindeki hareketleri işleyen fonksiyon
         function handleMove(clientX, clientY) {
-            if (!audioCtx) return;
+            if (!audioCtx) globalUnlockAudio();
+            if (!audioCtx || audioCtx.state === 'suspended') return;
+
             const rect = pad.getBoundingClientRect();
-            const x = clientX - rect.left, y = clientY - rect.top;  
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;  
             
             if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-                pointer.style.left = `${x - 5}px`; pointer.style.top = `${y - 5}px`;
+                if (pointer.classList.contains('hidden')) {
+                    pointer.classList.remove('hidden');
+                    text.innerText = "Kutuda gezinin.";
+                }
+
+                pointer.style.left = `${x - 5}px`; 
+                pointer.style.top = `${y - 5}px`;
+                
                 const frequency = Math.round(200 + (x / rect.width) * 800);
                 const volume = ((rect.height - y) / rect.height) * 0.12;
                 
-                // Anlık çıtırtıları önlemek için linearRamp kullanıyoruz
-                oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.03);
-                gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.03);
+                oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.02);
+                gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.02);
                 
                 document.getElementById('theremin-freq').innerText = `Frekans: ${frequency} Hz`;
                 document.getElementById('theremin-vol').innerText = `Volüm: %${Math.round(volume * 800)}`;
@@ -226,29 +239,29 @@ Teşekkürler, Saygılarımla, Eren TÜRK
 
         function stopAudio() {
             if (gainNode && audioCtx) {
-                gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+                gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.04);
             }
             document.getElementById('theremin-freq').innerText = `Frekans: -- Hz`;
             document.getElementById('theremin-vol').innerText = `Volüm: --`;
         }
 
-        // Masaüstü (Mouse) Etkinlikleri
-        pad.addEventListener('mousedown', initAudio);
-        pad.addEventListener('click', initAudio);
+        // Masaüstü Olayları
         pad.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
         pad.addEventListener('mouseleave', stopAudio);
 
-        // Mobil (Dokunmatik) Etkinlikleri - Kilidi açmak için hemtouchstart hem touchend tetikleniyor
+        // Mobil Dokunmatik Olayları
         pad.addEventListener('touchstart', (e) => {
-            initAudio();
-            handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            globalUnlockAudio();
+            if(e.touches && e.touches[0]) {
+                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
         }, { passive: true });
 
         pad.addEventListener('touchmove', (e) => {
-            if (!audioCtx) initAudio();
-            // Sayfanın aşağı yukarı kaymasını engeller, böylece theremin rahat çalınır
             if (e.cancelable) e.preventDefault(); 
-            handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            if(e.touches && e.touches[0]) {
+                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
         }, { passive: false });
 
         pad.addEventListener('touchend', stopAudio);

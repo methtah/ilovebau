@@ -150,65 +150,81 @@
         </div>
     </section>
 
-    <!-- PROJE GALERİSİ & THEREMIN LAB -->
+<!-- PROJE GALERİSİ (DİNAMİK SLIDER / LIGHTBOX ENTEGRELİ) -->
     <section id="gallery" class="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto">
         <div class="mb-10 text-center lg:text-left">
             <span class="code-font text-cyan-400 text-xs font-semibold uppercase tracking-wider">ÇIKTI VE GÖRSELLER</span>
             <h2 class="text-xl sm:text-3xl font-bold mt-1">Galeri & Donanım Laboratuvarı</h2>
-            <p class="text-xs sm:text-sm text-gray-400 mt-1">Sektörel tasarımlarımın, render çıktılarımın ve fizik/müzik tabanlı donanım çalışmalarımın sergi alanı.</p>
+            <p class="text-xs sm:text-sm text-gray-400 mt-1">Kartlara tıklayarak projelere ait tüm çalışmaları ve analiz görsellerini inceleyebilirsiniz.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             
-            <!-- GÖRSEL GALERİ ALANI -->
-            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- DÖRT BÖLMELİ GÖRSEL GALERİ ALANI (BUTONLU VE AÇIKLAMALI) -->
+            <div class="lg:col-span-2 flex flex-col gap-5">
                 
-                <!-- GÖRSEL KART 1 -->
-                <div class="group bg-[#0E1322] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all">
-                    <div class="aspect-video bg-gray-900 flex items-center justify-center text-gray-600 border-b border-gray-800 relative p-4">
-                        <span class="text-xs code-font text-center">[ 3D Mobilya Tasarımı & Render ]</span>
-                        <div class="absolute inset-0 bg-cyan-950/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <!-- BÖLME 1: MOBİLYA TASARIMI -->
+                <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 mb-1.5">
+                            <span class="text-[10px] code-font text-cyan-400 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/30">PROJE - 01</span>
+                            <h4 class="font-bold text-white text-base">3D Ürün Tasarımı & V-Ray Render</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xl">
+                            İki yıldır İnegöl mobilya tasarım sektöründe, profesyonel bir tasarım stüdyosunda geliştirdiğim endüstriyel modellemeler. Tasarladığım ürünler IFF ve MODEF gibi uluslararası fuarlarda sergilenmiş ve üretime geçmiştir.
+                        </p>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-sm">3D Ürün Tasarımı & V-Ray Render</h4>
-                        <p class="text-xs text-gray-400 mt-1">Uluslararası fuarlarda sergilenen ve üretimi yapılan endüstriyel mobilya modellemelerim.</p>
-                    </div>
+                    <button onclick="openSlider('mobilya')" class="w-full sm:w-auto bg-gray-900 hover:bg-cyan-500 hover:text-black text-gray-300 font-medium text-xs code-font px-4 py-2.5 rounded-lg border border-gray-800 hover:border-cyan-400 transition-all flex items-center justify-center space-x-1 whitespace-nowrap cursor-pointer">
+                        <span>📂 Görselleri İncele</span>
+                    </button>
                 </div>
 
-                <!-- GÖRSEL KART 2 -->
-                <div class="group bg-[#0E1322] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all">
-                    <div class="aspect-video bg-gray-900 flex items-center justify-center text-gray-600 border-b border-gray-800 relative p-4">
-                        <span class="text-xs code-font text-center">[ Tiyatro & Sahne Çıktıları ]</span>
-                        <div class="absolute inset-0 bg-cyan-950/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <!-- BÖLME 2: TİYATRO -->
+                <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 mb-1.5">
+                            <span class="text-[10px] code-font text-purple-400 bg-purple-950/40 px-2 py-0.5 rounded border border-purple-800/30">PROJE - 02</span>
+                            <h4 class="font-bold text-white text-base">Kültürel Etkinlikler & Sahne Sanatları</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xl">
+                            Lise tiyatro kulübü bünyesinde kaleme aldığım, yönettiğim ve performans sergilediğim organizasyonlar. 2026 İnegöl Meddahlık Yarışması birinciliği çıktılarımı ve sahne arkası disiplin süreçlerini içerir.
+                        </p>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-sm">Kültürel Etkinlikler & Sahne Sanatları</h4>
-                        <p class="text-xs text-gray-400 mt-1">Yazıp yönettiğim, dekor tasarımı ve oyunculuğunu üstlendiğim organizasyonlardan kareler.</p>
-                    </div>
+                    <button onclick="openSlider('tiyatro')" class="w-full sm:w-auto bg-gray-900 hover:bg-cyan-500 hover:text-black text-gray-300 font-medium text-xs code-font px-4 py-2.5 rounded-lg border border-gray-800 hover:border-cyan-400 transition-all flex items-center justify-center space-x-1 whitespace-nowrap cursor-pointer">
+                        <span>📂 Görselleri İncele</span>
+                    </button>
                 </div>
 
-                <!-- GÖRSEL KART 3 -->
-                <div class="group bg-[#0E1322] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all">
-                    <div class="aspect-video bg-gray-900 flex items-center justify-center text-gray-600 border-b border-gray-800 relative p-4">
-                        <span class="text-xs code-font text-center">[ IBM Quantum Lab Deneyleri ]</span>
-                        <div class="absolute inset-0 bg-cyan-950/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <!-- BÖLME 3: KUANTUM -->
+                <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 mb-1.5">
+                            <span class="text-[10px] code-font text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/30">PROJE - 03</span>
+                            <h4 class="font-bold text-white text-base">IBM Qiskit Devre Algoritmaları</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xl">
+                            IBM Torino gerçek kuantum donanımı üzerinde Python ve Qiskit kütüphanesi kullanarak çalıştırdığım kuantum devre şemaları, Bell State dolaşıklık deneyleri ve olasılık histogram analizleri.
+                        </p>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-sm">IBM Qiskit Devre Algoritmaları</h4>
-                        <p class="text-xs text-gray-400 mt-1">Gerçek kuantum işlemciler üzerinde çalıştırdığım devre şemaları ve analiz grafiklerinin çıktıları.</p>
-                    </div>
+                    <button onclick="openSlider('kuantum')" class="w-full sm:w-auto bg-gray-900 hover:bg-cyan-500 hover:text-black text-gray-300 font-medium text-xs code-font px-4 py-2.5 rounded-lg border border-gray-800 hover:border-cyan-400 transition-all flex items-center justify-center space-x-1 whitespace-nowrap cursor-pointer">
+                        <span>📂 Görselleri İncele</span>
+                    </button>
                 </div>
 
-                <!-- GÖRSEL KART 4 -->
-                <div class="group bg-[#0E1322] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all">
-                    <div class="aspect-video bg-gray-900 flex items-center justify-center text-gray-600 border-b border-gray-800 relative p-4">
-                        <span class="text-xs code-font text-center">[ Sosyal Oluşumlar & Başarılar ]</span>
-                        <div class="absolute inset-0 bg-cyan-950/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <!-- BÖLME 4: TOPLULUK & SPOR -->
+                <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 mb-1.5">
+                            <span class="text-[10px] code-font text-rose-400 bg-rose-950/40 px-2 py-0.5 rounded border border-rose-800/30">PROJE - 04</span>
+                            <h4 class="font-bold text-white text-base">Topluluk Yönetimi & Spor Dereceleri</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xl">
+                            İnegöl bünyesindeki sivil toplum örgütlerinde (ADD, Gençlik Merkezi) üstlendiğim temsilcilik/yöneticilik belgeleri ve uzun yıllardır sürdürdüğüm taekwondo branşındaki il derecesi madalya görsel dökümleri.
+                        </p>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-sm">Topluluk Yönetimi & Spor Dereceleri</h4>
-                        <p class="text-xs text-gray-400 mt-1">İnegöl'de yer aldığım sosyal projeler, gençlik meclisi çalışmaları ve spor ödüllerim.</p>
-                    </div>
+                    <button onclick="openSlider('sosyal')" class="w-full sm:w-auto bg-gray-900 hover:bg-cyan-500 hover:text-black text-gray-300 font-medium text-xs code-font px-4 py-2.5 rounded-lg border border-gray-800 hover:border-cyan-400 transition-all flex items-center justify-center space-x-1 whitespace-nowrap cursor-pointer">
+                        <span>📂 Görselleri İncele</span>
+                    </button>
                 </div>
 
             </div>
@@ -244,6 +260,162 @@
 
         </div>
     </section>
+
+<!-- TAM EKRAN SLIDER MODAL (DEVA-SİNEMATİK BOYUT & AÇIKLAMA DESTEKLİ) -->
+    <div id="gallery-modal" class="fixed inset-0 bg-black/98 z-50 hidden flex-col items-center justify-between p-4 md:p-8 animate-fade-in">
+        
+        <!-- ÜST PANEL: Başlık ve Kapatma Butonu -->
+        <div class="w-full max-w-7xl flex items-center justify-between border-b border-gray-800 pb-4 mt-2">
+            <div>
+                <h3 id="modal-title" class="text-base sm:text-xl font-bold text-white tracking-tight"></h3>
+                <p id="modal-counter" class="text-xs code-font text-cyan-400 mt-0.5"></p>
+            </div>
+            <button onclick="closeSlider()" class="text-gray-400 hover:text-white text-4xl code-font bg-gray-900 hover:bg-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-colors shadow-lg">&times;</button>
+        </div>
+        
+        <!-- ORTA PANEL: Devasa Resim ve Yön Okları -->
+        <div class="relative w-full max-w-7xl flex-1 flex items-center justify-center my-4 h-[60vh] md:h-[70vh]">
+            <!-- Sol Ok -->
+            <button onclick="prevSlide()" class="absolute left-0 lg:-left-4 text-white hover:text-cyan-400 text-4xl font-bold z-50 bg-gray-900/60 hover:bg-gray-900 p-3 rounded-xl transition-all select-none">&lt;</button>
+            
+            <!-- Resim Kutusu -->
+            <div class="w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-gray-950/40 p-2">
+                <img id="modal-img" src="" alt="Galeri Resmi" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+            </div>
+
+            <!-- Sağ Ok -->
+            <button onclick="nextSlide()" class="absolute right-0 lg:-right-4 text-white hover:text-cyan-400 text-4xl font-bold z-50 bg-gray-900/60 hover:bg-gray-900 p-3 rounded-xl transition-all select-none">&gt;</button>
+        </div>
+
+        <!-- ALT PANEL: Dinamik Görsel Açıklaması -->
+        <div class="w-full max-w-4xl bg-gray-900/80 border border-gray-800 rounded-xl p-4 mb-2 text-center shadow-xl backdrop-blur-sm">
+            <p id="modal-description" class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed font-normal"></p>
+        </div>
+    </div>
+
+    <!-- SLIDER JAVASCRIPT LOGIC (AÇIKLAMA DESTEKLİ SİSTEM) -->
+    <script>
+        // Kanka resim yollarını ve altına gelecek açıklamaları buradan yönetiyorsun.
+        const galleryData = {
+            mobilya: {
+                title: "3D Mobilya Tasarımı & Render Çıktıları",
+                items: [
+                    {
+                        src: "gorseller/mobilya_1.jpg",
+                        desc: "MODEF Uluslararası Mobilya Fuarı için hazırladığım modern koltuk takımı tasarımı. Rhino 3D ile modellenip, V-Ray ile fotogerçekçi malzeme ve stüdyo ışıklandırması uygulanmıştır."
+                    },
+                    {
+                        src: "gorseller/mobilya_2.jpg",
+                        desc: "Üretime geçen ve aktif olarak satışı yapılan avangard yatak odası projesinin cila ve kumaş detay analizi için aldığım yakın plan (close-up) render çıktısı."
+                    }
+                ]
+            },
+            tiyatro: {
+                title: "Tiyatro Oyunları & Sahne Sanatları",
+                items: [
+                    {
+                        src: "gorseller/tiyatro_1.jpg",
+                        desc: "Lise tiyatro kulübünde hem yazıp yönettigim hem de başrolünü üstlendiğim dönem oyununun sahne arkası dekor hazırlıkları ve ekip çalışması anı."
+                    },
+                    {
+                        src: "gorseller/tiyatro_2.jpg",
+                        desc: "2026 İnegöl Meddahlık Yarışması'nda birincilik getiren tek kişilik performansım esnasında, sahne ışığı ve hikaye anlatımı dengesini kurduğum o an."
+                    }
+                ]
+            },
+            kuantum: {
+                title: "IBM Quantum Lab & Qiskit Devre Deneyleri",
+                items: [
+                                        {
+                        src: "composer.png",
+                        desc: "Hala deneylerimde devam ettiğim IBM Quantum Composer arayüzü ile dört kübitlik tüm değerlerin çıkabildiği Quantum Fourier Transform (QFT) devre şeması."
+                    },
+                    {
+                        src: "quaibm.png",
+                        desc: "Kullandığım IBM Quantum donanımlarının gerçek ve kullanılabilir olduğu, bu projelerimde de kullandığıma dair görsel."
+                    },
+                    {
+                        src: "baugetir.png",
+                        desc: "Ülkemizde daha önce yaşanan data sızıntılarını önlemek amaçlı, bu başvuru için hazırladığım Kuantum BB84 ve SHA384 şifreleme ile data şifreleme projesi."
+                    },
+                    {
+                        src: "bruteforce.png",
+                        desc: "Sızdırılan dataların Brute-Force tekniği ile kırıldığı biliniyor, bu teknik ile günümüz şifrelemesinin ne kadar kırılabilir olduğunu gösterme projesi."
+                    },
+                    
+                    {
+                        src: "quacode.png",
+                        desc: "Bu projeyi oluştururken yazdığım backend projeleri."
+                    },
+
+                ]
+            },
+            sosyal: {
+                title: "Sosyal Oluşumlar, Belgeler & Spor Başarıları",
+                items: [
+                    {
+                        src: "gorseller/taekwondo_derece.jpg",
+                        desc: "Uzun yıllardır sürdürdüğüm disiplinli Taekwondo eğitimi sonucunda il genelinde düzenlenen şampiyonada elde ettiğim derece ve madalya törenim."
+                    },
+                    {
+                        src: "gorseller/genclik_merkezi.jpg",
+                        desc: "Gençlik Merkezi İnegöl Temsilcisi ve ADD bünyesinde akranlarımla birlikte yürüttüğümüz sosyal sorumluluk ve topluluk yönetimi projelerimizin resmi belgesi."
+                    }
+                ]
+            }
+        };
+
+        let currentCategory = "";
+        let currentImageIndex = 0;
+
+        function openSlider(category) {
+            currentCategory = category;
+            currentImageIndex = 0;
+            updateModal();
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            document.getElementById('gallery-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSlider() {
+            document.getElementById('gallery-modal').classList.remove('flex');
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateModal() {
+            const category = galleryData[currentCategory];
+            if (!category || category.items.length === 0) return;
+            
+            const currentItem = category.items[currentImageIndex];
+            
+            document.getElementById('modal-img').src = currentItem.src;
+            document.getElementById('modal-title').innerText = category.title;
+            document.getElementById('modal-description').innerText = currentItem.desc;
+            document.getElementById('modal-counter').innerText = `${currentImageIndex + 1} / ${category.items.length}`;
+        }
+
+        function nextSlide() {
+            const totalItems = galleryData[currentCategory].items.length;
+            currentImageIndex = (currentImageIndex + 1) % totalItems;
+            updateModal();
+        }
+
+        function prevSlide() {
+            const totalItems = galleryData[currentCategory].items.length;
+            currentImageIndex = (currentImageIndex - 1 + totalItems) % totalItems;
+            updateModal();
+        }
+
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('gallery-modal');
+            if (modal.classList.contains('hidden')) return;
+            
+            if (e.key === "Escape") closeSlider();
+            if (e.key === "ArrowRight") nextSlide();
+            if (e.key === "ArrowLeft") prevSlide();
+        });
+    </script>
 
     <!-- FOOTER -->
     <footer class="py-8 border-t border-gray-900 text-center text-xs text-gray-600 code-font px-4">

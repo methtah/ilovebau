@@ -424,56 +424,70 @@
 
     <!-- THEREMIN MOTOR SCRIPT -->
     <script>
-        let audioCtx = null, oscillator = null, gainNode = null;
-        const pad = document.getElementById('theremin-pad'), text = document.getElementById('theremin-text'), pointer = document.getElementById('theremin-pointer');
+        let audioCtx = null;
+        let oscillator = null;
+        let gainNode = null;
+        
+        const pad = document.getElementById('theremin-pad');
+        const text = document.getElementById('theremin-text');
+        const pointer = document.getElementById('theremin-pointer');
 
-        function globalUnlockAudio() {
+        // Ses motorunu başlatan ana fonksiyon
+        function initAudio() {
             if (!audioCtx) {
+                // Hem standart hem eski iOS Safari tarayıcılarını destekler
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                oscillator = audioCtx.createOscillator(); 
+                
+                oscillator = audioCtx.createOscillator();
                 gainNode = audioCtx.createGain();
                 
-                oscillator.type = 'sine'; 
+                oscillator.type = 'sine';
+                // İlk uyanışta kulağı tırmalamasın diye varsayılan frekans
                 oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                // Başlangıçta tamamen sessiz yapıyoruz
                 gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
                 
-                oscillator.connect(gainNode); 
+                oscillator.connect(gainNode);
                 gainNode.connect(audioCtx.destination);
-                oscillator.start();
+                oscillator.start(0);
             }
+            
+            // Eğer tarayıcı ses motorunu askıya aldıysa (suspended), zorla uyandır
             if (audioCtx && audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
-            document.removeEventListener('click', globalUnlockAudio);
-            document.removeEventListener('touchstart', globalUnlockAudio);
         }
 
-        document.addEventListener('click', globalUnlockAudio);
-        document.addEventListener('touchstart', globalUnlockAudio);
-
-        function handleMove(clientX, clientY) {
-            if (!audioCtx) globalUnlockAudio();
+        // Fare ve Dokunma koordinatlarından ses üreten fonksiyon
+        function calculateAndPlay(clientX, clientY) {
+            // Her harekette ses motorunun uyanık olduğundan emin oluyoruz (Mobil için kritik)
+            initAudio();
             if (!audioCtx || audioCtx.state === 'suspended') return;
 
             const rect = pad.getBoundingClientRect();
             const x = clientX - rect.left;
-            const y = clientY - rect.top;  
-            
+            const y = clientY - rect.top;
+
+            // İmlecin kutunun sınırları içinde olup olmadığını kontrol et
             if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
                 if (pointer.classList.contains('hidden')) {
                     pointer.classList.remove('hidden');
                     text.innerText = "Kutuda gezinin.";
                 }
 
-                pointer.style.left = `${x - 5}px`; 
+                // İmleci hareket ettir
+                pointer.style.left = `${x - 5}px`;
                 pointer.style.top = `${y - 5}px`;
-                
+
+                // Frekans ve Volüm hesaplama (X ekseni frekans, Y ekseni ses seviyesi)
                 const frequency = Math.round(200 + (x / rect.width) * 800);
                 const volume = ((rect.height - y) / rect.height) * 0.12;
-                
-                oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.02);
-                gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.02);
-                
+
+                // Mobilde ses pıtırdamalarını engellemek için doğrusal yumuşak geçişler (LinearRamp)
+                oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.015);
+                gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.015);
+
+                // Ekrana değerleri bas
                 document.getElementById('theremin-freq').innerText = `Frekans: ${frequency} Hz`;
                 document.getElementById('theremin-vol').innerText = `Volüm: %${Math.round(volume * 800)}`;
             }
@@ -481,30 +495,45 @@
 
         function stopAudio() {
             if (gainNode && audioCtx) {
-                gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.04);
+                // Sesi aniden kesmek yerine milisaniyeler içinde sıfıra çekiyoruz (Çıtırtı yapmasın diye)
+                gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.03);
             }
             document.getElementById('theremin-freq').innerText = `Frekans: -- Hz`;
             document.getElementById('theremin-vol').innerText = `Volüm: --`;
         }
 
-        pad.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+        // MASAÜSTÜ (MOUSE) OLAYLARI
+        pad.addEventListener('mousedown', (e) => {
+            initAudio();
+            calculateAndPlay(e.clientX, e.clientY);
+        });
+        pad.addEventListener('mousemove', (e) => {
+            if (e.buttons > 0 || audioCtx) { // Tıklama varsa veya motor uyanıksa oynat
+                calculateAndPlay(e.clientX, e.clientY);
+            }
+        });
         pad.addEventListener('mouseleave', stopAudio);
+        pad.addEventListener('mouseup', stopAudio);
 
+        // MOBİL (DOKUNMATİK TIKLAMA) OLAYLARI - İŞTE KİLİT NOKTA BURASI
         pad.addEventListener('touchstart', (e) => {
-            globalUnlockAudio();
-            if(e.touches && e.touches[0]) {
-                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            // Kullanıcı dokunduğu milisaniyede iOS/Android ses kilidini kırıyoruz
+            initAudio(); 
+            if (e.touches && e.touches[0]) {
+                calculateAndPlay(e.touches[0].clientX, e.touches[0].clientY);
             }
         }, { passive: true });
 
         pad.addEventListener('touchmove', (e) => {
+            // Mobilde parmağı kaydırırken sayfanın aşağı/yukarı kaymasını engelliyoruz ki kesintisiz çalsın
             if (e.cancelable) e.preventDefault(); 
-            if(e.touches && e.touches[0]) {
-                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+            if (e.touches && e.touches[0]) {
+                calculateAndPlay(e.touches[0].clientX, e.touches[0].clientY);
             }
         }, { passive: false });
 
         pad.addEventListener('touchend', stopAudio);
+        pad.addEventListener('touchcancel', stopAudio);
     </script>
 </body>
 </html>

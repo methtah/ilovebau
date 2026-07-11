@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eren Türk | Portfolyo</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Fonts (Inter & Fira Code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,7 +15,6 @@
 </head>
 <body class="bg-[#0B0F19] text-gray-100 antialiased selection:bg-cyan-500 selection:text-black">
 
-    <!-- NAVİGASYON BAR -->
     <nav class="fixed top-0 left-0 w-full bg-[#0B0F19]/80 backdrop-blur-md border-b border-gray-800 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <a href="#" class="code-font text-cyan-400 font-bold text-base sm:text-lg">&lt;i love bau&gt;</a>
@@ -28,7 +25,6 @@
         </div>
     </nav>
 
-    <!-- HERO / KARŞILAMA ALANI -->
     <section class="min-h-[45vh] sm:min-h-[50vh] flex items-center justify-center pt-24 px-4 sm:px-6 relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.12),transparent_50%)]"></div>
         <div class="max-w-4xl text-center z-10">
@@ -41,18 +37,15 @@
         </div>
     </section>
 
-    <!-- BLOG / METİN ALANI -->
     <section id="about" class="py-12 sm:py-16 px-4 sm:px-6 bg-[#0E1322] border-t border-b border-gray-900">
         <div class="max-w-3xl mx-auto">
             
-            <!-- Üst Bilgi Satırı -->
             <div class="flex items-center space-x-2 mb-8 text-gray-500 text-[11px] sm:text-xs code-font">
                 <span>Döküman:</span>
                 <span class="text-cyan-400">eren_turk_basvuru.txt</span>
                 <span>|</span>
             </div>
             
-            <!-- Giriş Kısmı -->
             <div class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed space-y-6 font-normal tracking-wide">
                 <p>
                     Merhaba, ben Eren Türk. 18 yaşındayım, Bursa/İnegöl'de yaşıyorum ve İnegöl Nuh Mehmet Küçükçalık Anadolu Lisesi mezunuyum. Babamın işlettiği lokantaya 10 yaşında hayatı öğrenmeye gittim, 15 yaşıma kadar sıfırdan başladığım iş hayatında aşçılığa kadar tırmandım. Babamı lise yıllarımın ortasında kaybettim, dolayısıyla lokantamızı da devrettik. 10 Yaşında bir erkek kardeşim ve annem ile beraber yaşıyoruz. Bahçeşehir Üniversitesi'nde eğitim görmeyi hedefliyorum çünkü bugüne kadar kendi çabamla geliştirdiğim teknik ve yaratıcı birikimimi, akademik bir çatı altında büyütmek istiyorum.
@@ -63,7 +56,6 @@
 
                 <hr class="border-gray-800 my-8">
 
-                <!-- Bölüm: Yazılım ve Kuantum -->
                 <div class="space-y-3 pt-2">
                     <div class="flex items-center space-x-2">
                         <span class="text-xs code-font text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/40">+</span>
@@ -73,12 +65,11 @@
                         Yazılımla tanışmam ortaokul yıllarına dayanıyor; HTML, CSS ve JavaScript'i kendi kendime öğrendim, ardından robotik kodlama ve Arduino ile donanım-yazılım entegrasyonuna yöneldim.
                     </p>
                     <p class="text-gray-400 text-sm sm:text-base">
-                        Lisede fizik dersiyle birlikte kuantum bilişime ilgi duymaya başladım. Python öğrendim, Qiskit kütüphanesini kullanarak IBM'in gerçek kuantum işlemcilerine internet üzerinden erişim sağladım ve kendi devrelerimi bu donanımlarda çalıştırdım. <span class="code-font text-xs text-cyan-400 bg-slate-900 px-1.5 py-0.5 rounded border border-gray-800">[X-qubit'lik bir Bell state deneyi, Grover algoritması implementasyonu...]</span>
+                        Lisede fizik dersiyle birlikte kuantum bilişime ilgi duymaya başladım. Python öğrendim, Qiskit kütüphanesini kullanarak IBM'in gerçek kuantum işlemcilerine internet üzerinden erişim sağladım ve kendi devrelerimi bu donanımlarda çalıştırdım. <span class="code-font text-xs text-cyan-400 bg-slate-900 px-1.5 py-0.5 rounded border border-gray-800">[QFT, BB84 ve SHA384...]</span>
                     </p>
-                    <p class="text-xs text-gray-500 italic">💡 Bu ilgi alanı, galeri bölümündeki devre şemaları ve analiz grafiklerinde görülebilir.</p>
+                    <p class="text-xs text-gray-500 italic"> Bu ilgi alanı, galeri bölümündeki devre şemaları ve analiz grafiklerinde görülebilir.</p>
                 </div>
 
-                <!-- Bölüm: Endüstriyel Tasarım -->
                 <div class="space-y-3 pt-6">
                     <div class="flex items-center space-x-2">
                         <span class="text-xs code-font text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">+</span>
@@ -92,7 +83,6 @@
                     </p>
                 </div>
 
-                <!-- Bölüm: Sahne Sanatları -->
                 <div class="space-y-3 pt-6">
                     <div class="flex items-center space-x-2">
                         <span class="text-xs code-font text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800/40">+</span>
@@ -106,7 +96,6 @@
                     </p>
                 </div>
 
-                <!-- Bölüm: Theremin -->
                 <div class="space-y-3 pt-6">
                     <div class="flex items-center space-x-2">
                         <span class="text-xs code-font text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">+</span>
@@ -115,10 +104,9 @@
                     <p class="text-gray-400 text-sm sm:text-base">
                         Küçük yaştan beri müzikle ilgiliyim; amatör olarak elektro gitar ve klasik gitar çalıyorum. Keşfettiğim ve ilgimi çeken Theremin'e maddi olarak ulaşamayınca, kendi bilgi birikimimi (Arduino, Python, 3D tasarım, fizik) birleştirerek kendi alternatif Theremin'imi tasarladım ve inşa ettim.
                     </p>
-                    <p class="text-xs text-gray-500 italic">🎹 Bu proje üzerinde aktif olarak çalışmaya devam ediyorum.</p>
+                    <p class="text-xs text-gray-500 italic"> Bu proje üzerinde aktif olarak çalışmaya devam ediyorum.</p>
                 </div>
 
-                <!-- Bölüm: Topluluk & Spor -->
                 <div class="space-y-3 pt-6">
                     <div class="flex items-center space-x-2">
                         <span class="text-xs code-font text-rose-400 bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/40">+</span>
@@ -131,7 +119,6 @@
 
                 <hr class="border-gray-800 my-8">
 
-                <!-- Kapanış Kısmı -->
                 <div class="space-y-4 pt-2">
                     <h4 class="font-bold text-white text-base sm:text-lg">Kapanış</h4>
                     <p class="text-gray-300 text-sm sm:text-base">
@@ -150,7 +137,6 @@
         </div>
     </section>
 
-<!-- PROJE GALERİSİ (DİNAMİK SLIDER / LIGHTBOX ENTEGRELİ) -->
     <section id="gallery" class="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto">
         <div class="mb-10 text-center lg:text-left">
             <span class="code-font text-cyan-400 text-xs font-semibold uppercase tracking-wider">ÇIKTI VE GÖRSELLER</span>
@@ -160,10 +146,8 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             
-<!-- DÖRT BÖLMELİ GÖRSEL GALERİ ALANI (BUTONLU VE AÇIKLAMALI) -->
             <div class="lg:col-span-2 flex flex-col gap-5">
                 
-                <!-- BÖLME 1: MOBİLYA TASARIMI -->
                 <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
                     <div class="flex-1">
                         <div class="flex items-center space-x-2 mb-1.5">
@@ -179,7 +163,6 @@
                     </button>
                 </div>
 
-                <!-- BÖLME 2: TİYATRO -->
                 <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
                     <div class="flex-1">
                         <div class="flex items-center space-x-2 mb-1.5">
@@ -195,7 +178,6 @@
                     </button>
                 </div>
 
-                <!-- BÖLME 3: KUANTUM -->
                 <div class="group bg-[#0E1322] border border-gray-800/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-cyan-500/30 transition-all">
                     <div class="flex-1">
                         <div class="flex items-center space-x-2 mb-1.5">
@@ -213,7 +195,6 @@
 
             </div>
 
-            <!-- SAĞ TARAF: THEREMIN MODÜLÜ -->
             <div class="lg:col-span-1 mt-4 lg:mt-0">
                 <div class="bg-[#0E1322] border border-amber-500/30 rounded-xl p-5 flex flex-col justify-between lg:sticky lg:top-24 shadow-lg shadow-amber-950/10">
                     <div>
@@ -245,10 +226,8 @@
         </div>
     </section>
 
-<!-- TAM EKRAN SLIDER MODAL (DEVA-SİNEMATİK BOYUT & AÇIKLAMA DESTEKLİ) -->
     <div id="gallery-modal" class="fixed inset-0 bg-black/98 z-50 hidden flex-col items-center justify-between p-4 md:p-8 animate-fade-in">
         
-        <!-- ÜST PANEL: Başlık ve Kapatma Butonu -->
         <div class="w-full max-w-7xl flex items-center justify-between border-b border-gray-800 pb-4 mt-2">
             <div>
                 <h3 id="modal-title" class="text-base sm:text-xl font-bold text-white tracking-tight"></h3>
@@ -257,29 +236,22 @@
             <button onclick="closeSlider()" class="text-gray-400 hover:text-white text-4xl code-font bg-gray-900 hover:bg-gray-800 w-12 h-12 rounded-full flex items-center justify-center transition-colors shadow-lg">&times;</button>
         </div>
         
-        <!-- ORTA PANEL: Devasa Resim ve Yön Okları -->
         <div class="relative w-full max-w-7xl flex-1 flex items-center justify-center my-4 h-[60vh] md:h-[70vh]">
-            <!-- Sol Ok -->
             <button onclick="prevSlide()" class="absolute left-0 lg:-left-4 text-white hover:text-cyan-400 text-4xl font-bold z-50 bg-gray-900/60 hover:bg-gray-900 p-3 rounded-xl transition-all select-none">&lt;</button>
             
-            <!-- Resim Kutusu -->
             <div class="w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-gray-950/40 p-2">
                 <img id="modal-img" src="" alt="Galeri Resmi" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
             </div>
 
-            <!-- Sağ Ok -->
             <button onclick="nextSlide()" class="absolute right-0 lg:-right-4 text-white hover:text-cyan-400 text-4xl font-bold z-50 bg-gray-900/60 hover:bg-gray-900 p-3 rounded-xl transition-all select-none">&gt;</button>
         </div>
 
-        <!-- ALT PANEL: Dinamik Görsel Açıklaması -->
         <div class="w-full max-w-4xl bg-gray-900/80 border border-gray-800 rounded-xl p-4 mb-2 text-center shadow-xl backdrop-blur-sm">
             <p id="modal-description" class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed font-normal"></p>
         </div>
     </div>
 
-    <!-- SLIDER JAVASCRIPT LOGIC (AÇIKLAMA DESTEKLİ SİSTEM) -->
     <script>
-        // Kanka resim yollarını ve altına gelecek açıklamaları buradan yönetiyorsun.
         const galleryData = {
             mobilya: {
                 title: "3D Mobilya Tasarımı & Render Çıktıları",
@@ -310,11 +282,11 @@
                 title: "Tiyatro Oyunları & Sahne Sanatları",
                 items: [
                     {
-                        src: "tiyatro.JPG",
+                        src: "tiyatro.jpg",
                         desc: "Lise tiyatro kulübünde hem yazıp yönettigim hem de başrolünü üstlendiğim dönem oyununun ekip fotoğrafı."
                     },
                     {
-                        src: "meddah.JPG",
+                        src: "meddah.jpg",
                         desc: "2026 İnegöl Meddahlık Yarışması'nda birincilik kazandığım ödül takdim karesi."
                     },
                     {
@@ -322,7 +294,7 @@
                         desc: "Yönetici görevini üstlendiğim Atatürkçü Düşünce Derneği İnegöl Gençlik Kolu'nun yönetim ekibi."
                     },
                     {
-                        src: "yarisma.JPG",
+                        src: "yarisma.jpg",
                         desc: "Burada ise gençlik kolumuzun üyeleri ve yaptığı bir etkinlikten görsel."
                     },
                     {
@@ -330,7 +302,7 @@
                         desc: "İnegöl Genç Temsilciliğini yaptığım GSB Gençlik Merkezi ile yurt dışındaki Türk kökenli çocuklara yardım amaçlı yürüttüğümüz Bulgaristan, Makedonya ve Yunanistan görevimizden kesit."
                     },
                     {
-                        src: "koli.JPG",
+                        src: "koli.jpg",
                         desc: "İnegöl gençliğinin yurt dışına ulaştırmak istediği yardım kolilerinin gurur verici fotoğrafı."
                     }
                 ]
@@ -416,12 +388,10 @@
         });
     </script>
 
-    <!-- FOOTER -->
     <footer class="py-8 border-t border-gray-900 text-center text-xs text-gray-600 code-font px-4">
         &copy; 2026 Eren Türk. Tüm Hakları Saklıdır. Bahçeşehir Üniversitesi ApplyBAU Komitesi Değerlendirmesi İçindir.
     </footer>
 
-    <!-- THEREMIN MOTOR SCRIPT -->
     <script>
         let audioCtx = null;
         let oscillator = null;
@@ -431,19 +401,15 @@
         const text = document.getElementById('theremin-text');
         const pointer = document.getElementById('theremin-pointer');
 
-        // Ses motorunu başlatan ana fonksiyon
         function initAudio() {
             if (!audioCtx) {
-                // Hem standart hem eski iOS Safari tarayıcılarını destekler
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 
                 oscillator = audioCtx.createOscillator();
                 gainNode = audioCtx.createGain();
                 
                 oscillator.type = 'sine';
-                // İlk uyanışta kulağı tırmalamasın diye varsayılan frekans
                 oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
-                // Başlangıçta tamamen sessiz yapıyoruz
                 gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
                 
                 oscillator.connect(gainNode);
@@ -451,15 +417,12 @@
                 oscillator.start(0);
             }
             
-            // Eğer tarayıcı ses motorunu askıya aldıysa (suspended), zorla uyandır
             if (audioCtx && audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
         }
 
-        // Fare ve Dokunma koordinatlarından ses üreten fonksiyon
         function calculateAndPlay(clientX, clientY) {
-            // Her harekette ses motorunun uyanık olduğundan emin oluyoruz (Mobil için kritik)
             initAudio();
             if (!audioCtx || audioCtx.state === 'suspended') return;
 
@@ -467,26 +430,21 @@
             const x = clientX - rect.left;
             const y = clientY - rect.top;
 
-            // İmlecin kutunun sınırları içinde olup olmadığını kontrol et
             if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
                 if (pointer.classList.contains('hidden')) {
                     pointer.classList.remove('hidden');
                     text.innerText = "Kutuda gezinin.";
                 }
 
-                // İmleci hareket ettir
                 pointer.style.left = `${x - 5}px`;
                 pointer.style.top = `${y - 5}px`;
 
-                // Frekans ve Volüm hesaplama (X ekseni frekans, Y ekseni ses seviyesi)
                 const frequency = Math.round(200 + (x / rect.width) * 800);
                 const volume = ((rect.height - y) / rect.height) * 0.12;
 
-                // Mobilde ses pıtırdamalarını engellemek için doğrusal yumuşak geçişler (LinearRamp)
                 oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.015);
                 gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.015);
 
-                // Ekrana değerleri bas
                 document.getElementById('theremin-freq').innerText = `Frekans: ${frequency} Hz`;
                 document.getElementById('theremin-vol').innerText = `Volüm: %${Math.round(volume * 800)}`;
             }
@@ -494,29 +452,25 @@
 
         function stopAudio() {
             if (gainNode && audioCtx) {
-                // Sesi aniden kesmek yerine milisaniyeler içinde sıfıra çekiyoruz (Çıtırtı yapmasın diye)
                 gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.03);
             }
             document.getElementById('theremin-freq').innerText = `Frekans: -- Hz`;
             document.getElementById('theremin-vol').innerText = `Volüm: --`;
         }
 
-        // MASAÜSTÜ (MOUSE) OLAYLARI
         pad.addEventListener('mousedown', (e) => {
             initAudio();
             calculateAndPlay(e.clientX, e.clientY);
         });
         pad.addEventListener('mousemove', (e) => {
-            if (e.buttons > 0 || audioCtx) { // Tıklama varsa veya motor uyanıksa oynat
+            if (e.buttons > 0 || audioCtx) { 
                 calculateAndPlay(e.clientX, e.clientY);
             }
         });
         pad.addEventListener('mouseleave', stopAudio);
         pad.addEventListener('mouseup', stopAudio);
 
-        // MOBİL (DOKUNMATİK TIKLAMA) OLAYLARI - İŞTE KİLİT NOKTA BURASI
         pad.addEventListener('touchstart', (e) => {
-            // Kullanıcı dokunduğu milisaniyede iOS/Android ses kilidini kırıyoruz
             initAudio(); 
             if (e.touches && e.touches[0]) {
                 calculateAndPlay(e.touches[0].clientX, e.touches[0].clientY);
@@ -524,7 +478,6 @@
         }, { passive: true });
 
         pad.addEventListener('touchmove', (e) => {
-            // Mobilde parmağı kaydırırken sayfanın aşağı/yukarı kaymasını engelliyoruz ki kesintisiz çalsın
             if (e.cancelable) e.preventDefault(); 
             if (e.touches && e.touches[0]) {
                 calculateAndPlay(e.touches[0].clientX, e.touches[0].clientY);
